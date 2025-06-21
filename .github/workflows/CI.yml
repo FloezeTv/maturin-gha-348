@@ -42,7 +42,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Build wheels
-        uses: PyO3/maturin-action@v1
+        uses: FloezeTv/maturin-action@fix/rust-toolchain-toml
         with:
           target: ${{ matrix.platform.target }}
           args: --release --out dist --find-interpreter
@@ -73,7 +73,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Build wheels
-        uses: PyO3/maturin-action@v1
+        uses: FloezeTv/maturin-action@fix/rust-toolchain-toml
         with:
           target: ${{ matrix.platform.target }}
           args: --release --out dist --find-interpreter
@@ -101,7 +101,7 @@ jobs:
           python-version: 3.x
           architecture: ${{ matrix.platform.target }}
       - name: Build wheels
-        uses: PyO3/maturin-action@v1
+        uses: FloezeTv/maturin-action@fix/rust-toolchain-toml
         with:
           target: ${{ matrix.platform.target }}
           args: --release --out dist --find-interpreter
@@ -127,7 +127,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Build wheels
-        uses: PyO3/maturin-action@v1
+        uses: FloezeTv/maturin-action@fix/rust-toolchain-toml
         with:
           target: ${{ matrix.platform.target }}
           args: --release --out dist --find-interpreter
@@ -143,7 +143,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build sdist
-        uses: PyO3/maturin-action@v1
+        uses: FloezeTv/maturin-action@fix/rust-toolchain-toml
         with:
           command: sdist
           args: --out dist
@@ -173,7 +173,7 @@ jobs:
           subject-path: 'wheels-*/*'
       - name: Publish to PyPI
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        uses: PyO3/maturin-action@v1
+        uses: FloezeTv/maturin-action@fix/rust-toolchain-toml
         env:
           MATURIN_PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
         with:
